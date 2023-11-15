@@ -22,13 +22,20 @@ Soll auf eben von Baugruppen eine Microservic Architectur umgesetzt werden muss 
 1. Jede baugruppe solte ein eigense verarbeitungs gerät erhalten. Es wird darauf gehofft, dass die Verarbeitung der Aufgaben einzelner Baugruppen so einfach ist, das hierfür nur wenig rechenkapazität benötigt wird.  
 2. Die Baugruppen müssen miteinander verbunden werden.
 3. Ein komunikationsstandart zwischen den Baugruppen muss entwickelt werden  
-Aufgabe eines Baugruppen rechners ist die Verareitung aller singale der Sensoren, welche zur baugruppe gehören, sowie die Steuerung aller Actoren der Baugruppe. Dabei muss jede Baugruppe anforderungen von anderen Baugruppen befolgen, welche eine Bewegung von der Baugruppe fordern, sowie die verarbeiteten signale der Sensoren weitergeben, wenn diese von anderen Baugruppen benötigt werden.  
-Ein Probelem der Abklärung von zuständigkeiten entsteht. Wer darf wem sagen, was dieser tuhen soll. 
-
-Tatsechlich werden die einzlnen statione selbst in einem Monolitartigen Programm unabhängig von einander Programiert. 
-
-
-
-die Beweglichen teile der Maschine relevant. Alle statischen können nbeinflusst werden und sind damit aus softwarsicht  irrelevant
->Jede station kann als erster Microservic verwendet werden  
-Dabei erhält jede station einen eigenen Controler, welcher den ablauf an dieser station durchführt. 
+Aufgabe eines Baugruppenrechners ist die Verarbeitung aller singale der Sensoren, welche zur Baugruppe gehören, sowie die Steuerung aller Actoren der Baugruppe. Dabei muss jede Baugruppe anforderungen von anderen Baugruppen befolgen, welche eine Bewegung von der Baugruppe fordern, sowie die verarbeiteten signale der Sensoren weitergeben, wenn diese von anderen Baugruppen benötigt werden.  
+Ein Probelem der Abklärung von zuständigkeiten entsteht. Wer darf wem sagen, was dieser tuhen soll.  
+Ein weiteres Probelm bei diesem aufbau ist die Komunikationsart. Eine kabellose vunkverbindung wäre vorteilhaft, da hiermit viele kabel gespart werden könnten. Doch eine umsetzung über Bsp. WLAN scheint unter der beachtung von echtzeitkritereien äuserst unrealistisch. Daher müssten alle Baugruppen miteinander verbunden werden, welches zu einem erheblichen kabel wirwar führen würde. Dies Problematik besteht auch in der nachfolgenden Umsetzung.
+### Microservic auf ebene von Bauteilen
+Wird die Arbeit nochw eiter verteilt gelangt man zur letzmöglichen stufe. In dieser besitzt jeder Aktor und Sensor eine eigenen verarbeitungs Logik und warscheinlich auch einen eigenen chip. Jedes glied hat nur eine Minimale aufgabe umzusetzen. Sensoren müssen daten interpretieren und an die entsprechenden Aktoren weiterleiten. Actoren müssen auf Inforamtionen der Sensoren reagieren und womöglich selber einen Arbeitszusstand weiterleiten. Auch das verkabelungs problem könnte gelöst werden. Grundsetzlich müssen die sensoren sowieso eine Datenleitung besitzen, damit diese informationen Weitergeben können. Diese könnten zur verteilung von Inforamtionen verwendet werden können.
+### Überspannende Probleme
+Die umsetzung eine Microservizes auf ebene von Stationen erscheint sinnvoll, sovern diese auf möglichst wenigen unterschiedlichen geräten ausgeführt wird. Bei allen klein teiligeren aufteilungen entstehen folgenden Probleme:  
+1. Komunikation:  
+    1. Es ist unklar, wer welche zuständigkeiten hat  
+    2. Race conditions können vermehrt auftreten. Grade die Unsicherheit von Netzwerken können viele Racekonditions entstehen lassen.  
+2. Umsetzung von Echtzeitkriterien: Die umsetzung von echtzeitkriterien erscheint schwer. Netzwerk komunikation ist heufig nicht sicher und kann eine unbekante Zeit dauern. Die entwicklung, betrachtung und umsetzung von echtzeitanforderungen erscheint schwer.  
+3. Sicherheit: Insbesonder in Europa müssen gewise sicherheits standarts eingehalten werden. Heufig wird hierfür spezialisierte Hardware benötigt. Eine verteilung der Aufgabe ist potenziell unsicher oder auch kostspielig
+4. Entwicklung: Das Korekte zusammenspiel von Hunderten Sensoren und Actoren zu koordinieren ist bereits in einer Monolitischen software schwer. Wird diese aufgeteilt wird erscheint der aufwand nicht geringer zu werden. Die änderung an einer Baugruppe kann eine Softwareänderung an vielen anderen stellen zur folge haben. Dabei muss zuerst ersichtlich werden, welche dier vielen Services verändert werden müssen und dann müssen dies auch tatsechlich alle verändert werden.  
+5. Übersichtlichkeit: Die übersichtlichkeit des Ablaufes wird verschlechtert. Es gibt keine eindeutigen ablaufketten diese werden über datenaustauschen zwischen einzelnen Microserfices umgesetzt. Dieser austausch muss angelegt und verstanden werden. Warscheinlich wäre ein eigenes Visualiesierungstool nötig. 
+## Zusammenfassung
+Zusamngefast scheint die Umsetzung einer Passmaschien in einer kleineren Microservic architektur als auf basis von Stationen nicht sinnvoll. Die entwicklung dieser ist erhblich schwerer und unübersichtlicher. Auch Profitiert ein solche mashcine nicht von den vorteilen eines Microservices. Es wird zu jedem Zeitpunkt genau eine verarbeitungs Instanz pro aufgabe benötigt. Der rechen aufwand sollte relativ konstant sein.  
+Die umsetzung in form von einem Microservic Pro station kann empfohlen werden doch eine weiter aufspaltung ist nicht sinnvoll.
