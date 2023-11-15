@@ -26,7 +26,8 @@ Es ist demanch sinnvoll eine Microserficartige softwararchitectur auf ebene von 
 Soll auf eben von Baugrun eine Microservic Architectur umgesetzt werden muss folgendes beachtet werden:  
 1. Jede **Baugruppe** solte ein eigense verarbeitungs gerät erhalten. Es wird darauf gehofft, dass die Verarbeitung der Aufgaben einzelner Baugruppen so einfach ist, das hierfür nur wenig rechenkapazität benötigt wird.  
 2. Die **Baugruppen** müssen miteinander verbunden werden.
-3. Ein komunikationsstandart zwischen den Baugruppen muss entwickelt werden  
+3. Ein komunikationsstandart zwischen den Baugruppen muss entwickelt werden   
+
 Aufgabe eines Baugruppenrechners ist die Verarbeitung aller singale der Sensoren, welche zur Baugruppe gehören, sowie die Steuerung aller Actoren der Baugruppe. Dabei muss jede Baugruppe anforderungen von anderen Baugruppen befolgen, welche eine Bewegung von der Baugruppe fordern, sowie die verarbeiteten signale der Sensoren weitergeben, wenn diese von anderen Baugruppen benötigt werden.  
 Ein Probelem der Abklärung von zuständigkeiten entsteht. Wer darf wem sagen, was dieser tuhen soll.  
 Ein weiteres Probelm bei diesem aufbau ist die Komunikationsart. Eine kabellose vunkverbindung wäre vorteilhaft, da hiermit viele kabel gespart werden könnten. Doch eine umsetzung über Bsp. WLAN scheint unter der beachtung von echtzeitkritereien äuserst unrealistisch. Daher müssten alle Baugruppen miteinander verbunden werden, welches zu einem erheblichen kabel wirwar führen würde. Dies Problematik besteht auch in der nachfolgenden Umsetzung.
