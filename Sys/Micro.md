@@ -47,5 +47,3 @@ Die umsetzung eine Microservizes auf ebene von Stationen erscheint sinnvoll, sov
 ## Zusammenfassung
 Zusamngefast scheint die Umsetzung einer Passmaschien in einer kleineren Microservic architektur als auf basis von Stationen nicht sinnvoll. Die entwicklung dieser ist erhblich schwerer und unübersichtlicher. Auch Profitiert ein solche mashcine nicht von den vorteilen eines Microservices. Es wird zu jedem Zeitpunkt genau eine verarbeitungs Instanz pro aufgabe benötigt. Der rechen aufwand sollte relativ konstant sein.  
 Die umsetzung in form von einem Microservic Pro station kann empfohlen werden doch eine weiter aufspaltung ist nicht sinnvoll.
- 
-r
