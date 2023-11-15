@@ -1,13 +1,13 @@
 # Microservice-Architektur für eine Verteidigungsanlage
 
-In einer Verteidigungsanlage ist ein komplexer Produktionsablauf erforderlich. Die folgenden Überlegungen basieren auf einem hypothetischen Konzept für eine Passpersonalisierungsmaschine.
+In einer Vertigungsanlage erfolgt ein komplexer Produktionsablauf. Die folgenden Überlegungen basieren auf einem hypothetischen Konzept für eine Passpersonalisierungsmaschine.
 
 ## Aufgabe der Maschine
 Die Aufgabe einer Passpersonalisierungsmaschine, nachfolgend als "Personalisierungsmaschine" bezeichnet, besteht darin, ein vorhandenes Passdokument weiter zu personalisieren. Ein Dokument (Pass) wird im geschlossenen Zustand auf der einen Seite in die Maschine eingeführt und soll auf der anderen Seite vollständig personalisiert in einem geschlossenen Zustand ausgegeben werden. Die Ein- und Ausgabe erfolgt in vertikalen Containern.
 
 ## Aufbau der Maschine  
-Die Maschine soll aus mehreren stationen bestehen, welche unterschiedliche aufgaben erfüllen. Für unsere betrachtung sind alle Actoren und Sensoren der Maschine relvant. Die Actoren können durch die Softwar zu einer Bewegung gebracht werden, wärend Snsoren werte an die Software Lievern können. Ein bauteil kann sowohl aus einem Actor als auch aus einem Sensor bestehen.  
-Grundsetzlich muss die Bewegung der Maschine gesteuert werden. Typischerweise wird hierfür eine oder in Komplexen maschinen auch mehrer SPS'n verwendet um die Werte der SEnsoren auszulehsen und die Actoren entsprechend zu bewegen. Es gibt demnach eine Zentralle rechenkomponente und einen Monolitischen aufbau des Programmes.  
+Die Maschine soll aus mehreren Stationen bestehen, welche unterschiedliche aufgaben erfüllen. Für unsere betrachtung sind alle Actoren und Sensoren der Maschine relvant. Die Actoren können durch die Softwar zu einer Bewegung gebracht werden, wärend Snsoren werte an die Software Liefern können. Eine Baugruppe kann sowohl aus einem oder mehreren Actor als auch aus einem oder mehreren Sensor bestehen. Sie kann auch keinen Sensor oder Actor beinhalten. Es gibt auch Baugruppen ohne Sensor und Actor. Dies sind für die Betrachtung uninteresannt.  
+Grundsetzlich muss die Bewegung der Maschine gesteuert werden. Typischerweise wird hierfür eine oder in Komplexen maschinen auch mehrer SPS'n verwendet um die Werte der Sensoren auszulehsen und die Actoren entsprechend zu bewegen. Es gibt demnach eine Zentralle rechenkomponente und einen Monolitischen aufbau des Programmes.  
 Um eine steuerung für eine solche Maschine in form von Microserfices umzusetzen muss dieses Hauptprogramm in mehrere Bestandteile aufgeteilt werden. Dabei können folgende Schritte genommen werden:  
 1. Jede **Station** erhält ein eigenens Programm. Dieses gibt die zu befolgenden Abrebeitschritte in dieser station an. Da jede station ein eigenes Programm erhält wäre es möglich dies auf dedizierten chips für jede Station einzelnd auszuführen.  
 2. Jede **Baugruppe** in einer station erhält eine eigenen programierung. Eine Baugruppe ist grundsetzlich ein Zusammenschluss von mehreren bestandteilen der Maschine. In gewisser weise wird jede Station in weitere Substationen unterteilt. Diese erhalten ihre eigenen Programierung und im bestenfalle auch eigene Rechenchips.
