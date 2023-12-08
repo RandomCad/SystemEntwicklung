@@ -28,12 +28,29 @@ Der Inbetriebnehmer wird ebnfals als Kunde angesehn, da dieser ohne veränderung
 |                             |                               |                                 |
 |Durch eine Simple Graphische-|Eine anpassung an andere       |Der umfang an fehler             |
 |Oberfläche ist das Drucken   |Maschine ist schnell möglich   |informationen ist in der         |
-|der Statistickdaten möglich  |                               |Inbetriebnahme erhoebar          |
+|der Statistickdaten möglich  |                               |Inbetriebnahme erhörbar          |
+|                             |                               |                                 |
+|Als Benenung für die         |Es ist möglich die Benenung der|Das DRC gibt Fehler im           |
+|Speicherdatei ist jeglicher  |Daten in der Speicherdatei zu  |Druckprozess an                  |
+|Name möglich                 |verändern                      ||
+|                             |                               |                                 |
+|                             |Die namens veränderung in der  ||
+|                             |Speicherdatei ist Dynamisch    ||
+|                             |möglich                        ||
 |                             |                               |                                 |
 
 
-|Drucken                      |
-|:---------------------------:|
-|Das DRC ermöglicht das       |
-|Automatische drucken der     |
-|erzeugten Statistick Daten   |
+|Drucken                      |Datei Speicherformate          |SPS-Kommunikatio                 |
+|:---------------------------:|:-----------------------------:|:-------------------------------:|
+|Das DRC ermöglicht das       |Die Daten sind in CSV Format   |Die kommunikation erfolgt        |
+|Automatische drucken der     |Speicherbar                    |Bidirektional                    |
+|erzeugten Statistick Daten   |                               ||
+|                             |                               ||
+|Es ist möglich die Daten     |                               |Die komunikation erfolgt in einr |
+|nicht zu Drucken sondern     |                               |für die SPS verständlichen       |
+|nur zu speichern             |                               |Codierung                        |
+|                             |                               |                                 |
+|Das DRC ist auch ohne        |||
+|angebundene Druckersoftware  |                               ||
+|Funktionsfähig               |||
+|                             |                               |                                 |
