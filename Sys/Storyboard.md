@@ -1,60 +1,32 @@
 # Storyboard zum DRC
-Im kontext dieses Storyboards ist abzuklären, in welchem Kontext die Software verwendet wird und welche Personen als Kunden angesehne werden.  
-Das DRC ist bestandteile einer Maschine welche von der *ruhlamat GmbH* hergestellt wird. 
-Das DRC smmelt Statistickdaten und speichert diese langfristig. 
-Hierzu muss das DRC hauptsächlich mit der SPS der Maschine komunizieren, da nur diese dazu fähig ist Statistick daten zu sammeln.  
-Aus diesem grund gibt es folgende Kunden für das DRC:
-* Bediner der Maschine/Endkunde
-* SPS entwickler
+Im Kontext dieses Storyboards ist abzuklären, in welchem Kontext die Software verwendet wird und welche Personen als Kunden angesehen werden.  
+Das DRC ist Bestandteile einer Maschine welche von der *ruhlamat GmbH* hergestellt wird. 
+Das DRC sammelt Statistikdaten und speichert diese langfristig. 
+Hierzu muss das DRC hauptsächlich mit der SPS der Maschine kommunizieren, da nur diese dazu fähig ist Statistikdaten zu sammeln.  
+Aus diesem Grund gibt es folgende Kunden für das DRC:
+* Bediener der Maschine/Endkunde
+* SPS Entwickler
 * Inbetriebnehmer
 * ruhlamat GmbH  
 
-Der Inbetriebnehmer wird ebnfals als Kunde angesehn, da dieser ohne veränderung am DRC selbst das DRC an die Maschine anpassen soll.
+Der Inbetriebnehmer wird ebenfalls als Kunde angesehen, da dieser ohne Veränderung am DRC selbst das DRC an die Maschine anpassen soll.
 ## Board
 
-|Bedinung                     |Konfiguration                  |Fehlerverhalten                  |
+|Bedingung                    |Konfiguration                 |Fehlerverhalten                  |
 |:---------------------------:|:-----------------------------:|:-------------------------------:|
-|Durch eine Simple Graphische-|Der speicherort von Daten in   |Im fehlerfall wird ein           |
-|Oberfläche kann eingestellt  |der SPS ist einfach einstellbar|eindeutiger fehlercode angegeben |
-|werden ob Daten gesammlt     |                               |                                 |
-|werden                       |                               |                                 |
+|Durch eine einfache graphische Oberfläche kann eingestellt werden, ob Daten gesammelt werden oder nicht. |Der Speicherort von Daten in der SPS ist einfach einstellbar.|Im Fehlerfall wird ein eindeutiger Fehlercode angegeben. |
 |                             |                               |                                 |
-|Die existenz des DRC ist im  |Der Speicherort der Gesamelten |Eine umfangreiche beschreibung   |
-|Normalgebrauch des Maschine  |Daten ist einfach und schnell  |von Fehlercodes leigt for        |
-|nicht zwingend erischtlich.  |             veränderbar       |                                 |
-|Das Programm erscheint ein   |                               |                                 |
-|bestandteil der Maschine zu  |                               |                                 |
-|sein                         |                               |                                 |
+|Die Existenz des DRC ist im Normalgebrauch der Maschine nicht zwingend erforderlich. |Der Speicherort der gesammelten Daten ist einfach und schnell veränderbar.|Eine umfangreiche Beschreibung von Fehlercodes liegt vor.|
+|Das Programm erscheint ein Bestandteil der Maschine zu sein. |                               |                                 |
 |                             |                               |                                 |
-|Durch eine Simple Graphische-|Eine anpassung an andere       |Der umfang an fehler             |
-|Oberfläche ist das Drucken   |Maschine ist schnell möglich   |informationen ist in der         |
-|der Statistickdaten möglich  |                               |Inbetriebnahme erhörbar          |
+|Durch eine einfache graphische Oberfläche ist das Drucken der Statistikdaten möglich. |Eine Anpassung an andere Maschinen ist schnell möglich.|Der Umfang an Fehlerinformationen ist in der Inbetriebnahme hörbar.|
+|Als Benennung für die Speicherdatei ist jeglicher Name möglich. |Es ist möglich, die Benennung der Daten in der Speicherdatei zu verändern. |Das DRC gibt Fehler im Druckprozess an.|
 |                             |                               |                                 |
-|Als Benenung für die         |Es ist möglich die Benenung der|Das DRC gibt Fehler im           |
-|Speicherdatei ist jeglicher  |Daten in der Speicherdatei zu  |Druckprozess an                  |
-|Name möglich                 |verändern                      ||
-|                             |                               |                                 |
-|                             |Die namens veränderung in der  ||
-|                             |Speicherdatei ist Dynamisch    ||
-|                             |möglich                        ||
-|                             |                               |                                 |
-  
-  
-
-
-
+|                             |Die Namensveränderung in der Speicherdatei ist dynamisch möglich. |                                 |
 
 |Drucken                      |Datei Speicherformate          |SPS-Kommunikation                |
 |:---------------------------:|:-----------------------------:|:-------------------------------:|
-|Das DRC ermöglicht das       |Die Daten sind in CSV Format   |Die kommunikation erfolgt        |
-|Automatische drucken der     |Speicherbar                    |Bidirektional                    |
-|erzeugten Statistick Daten   |                               ||
-|                             |                               ||
-|Es ist möglich die Daten     |                               |Die komunikation erfolgt in einr |
-|nicht zu Drucken sondern     |                               |für die SPS verständlichen       |
-|nur zu speichern             |                               |Codierung                        |
-|                             |                               |                                 |
-|Das DRC ist auch ohne        |||
-|angebundene Druckersoftware  |                               ||
-|Funktionsfähig               |||
-|                             |                               |                                 |
+|Das DRC ermöglicht das automatische Drucken der erzeugten Statistikdaten. |Die Daten sind im CSV-Format speicherbar.|Die Kommunikation erfolgt bidirektional.|
+|Es ist möglich, die Daten nicht zu drucken, sondern nur zu speichern. |                               |Die Kommunikation erfolgt in einer für die SPS verständlichen Codierung.|
+|Das DRC ist auch ohne angebundene Druckersoftware funktionsfähig. |                               |                                 |
+
