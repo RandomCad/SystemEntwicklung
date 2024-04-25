@@ -1,0 +1,10 @@
+@startuml
+  package D{
+    object A
+    object B
+    object C
+    A --> B
+    A --> C
+    B <-> C
+  }
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+  component D {
+    component [A]
+    component [B]
+    component [C]
+
+    interface BA
+    interface BC
+    interface CB
+    interface CA
+
+    [B] - BA
+    [B] - BC
+    [C] - CB
+    [C] - CA
+
+    [A] ..> BA : use
+    [A] ..> CA : use
+    [B] ..> CB : use
+    [C] ..> BC : use
+  }
+@enduml
