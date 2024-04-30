@@ -1,0 +1,63 @@
+@startuml
+floating note
+  Als Beispiel wird ein 'Compiler' für mathematische Ausdrücke verwendet.
+  Dieser sollte mathematische Aufgaben wie '43+5.4*3' korrekt verarbeiten.
+end note  
+
+start
+:Lexer;
+note right
+  Der Lexer findet alle 'Wörter', die in der Sprache existieren. 
+  Im Beispiel wären das die Wörter: '43', '+', '5.4', '*', '3'.
+end note
+
+:Parser;
+note right
+  Der Parser analysiert die Struktur des Programms. 
+  Seine Aufgabe ist es, die 'Grammatik' zu ermitteln, wobei er typischerweise ein AST erzeugt.
+  Dieses gibt die Struktur als Graph wieder. Im Beispiel
+   +- -[+]- -+
+   |            |
+  [54]    +-[*]-+
+             |         |
+            [5.4]  [3]
+end note  
+
+:Semantische Analyse;
+note right
+  Während der semantischen Analyse wird weiterhin geprüft, ob der Programmtext ein sinnvolles Programm darstellt.
+  Dazu werden weitere Inhaltsanalysen durchgeführt. 
+  Würde die deutsche Sprache verarbeitet werden, würde an dieser Stelle die Bedeutung der Sätze ermittelt werden. 
+  Der Parser hätte nur die grammatikalische Struktur überprüft.
+end note
+
+if () then (Zwischencode-Generierung)
+  :Generat Zwischencode;
+note left
+  Erzeugt einen Zwischencode in einer anderen Sprache. 
+  Diese wird von einem "anderen" Compiler verarbeitet. 
+end note
+  if (Optimieren) then (no)
+  else (ja)
+    :Optimieren;
+  note left
+    Das Programm wird optimiert.
+    Abhängig von den Fähigkeiten des Compilers können verschiedene Ziele gesetzt werden. 
+    Zum Beispiel die Größe des Programms, Effizienz/Geschwindigkeit und andere.
+  end note
+  endif
+else if() then (default)
+else (direkte Optimierung)
+  :Optimize AST;
+note right
+  Das Programm wird optimiert.
+  Je nach Fähigkeiten des Compilers können verschiedene Ziele gesetzt werden. 
+  Zum Beispiel die Größe des Programms, Effizienz/Geschwindigkeit und andere.
+end note
+endif
+:Generierung von Maschinencode;
+note right
+  Erzeugt ausführbaren Maschinencode.
+end note
+stop
+@enduml
