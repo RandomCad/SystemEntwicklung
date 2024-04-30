@@ -1,0 +1,60 @@
+@startuml
+rectangle SVN{
+  rectangle Server as S1{
+    component SvnRepository
+  }
+  rectangle Local as L1{
+    component localSvnFiles
+  }
+}
+
+rectangle Git{
+  rectangle Server as S2{
+    component gitRepository
+  }
+
+  rectangle Local as L2{
+    component localGitRepository
+    component localGitFiles
+  }
+}
+
+localGitFiles -up-> localGitRepository
+localGitRepository -up-> gitRepository
+
+localSvnFiles -up-> SvnRepository
+
+note top of SVN
+  * Zentrale Versionsverwaltung,
+  * ein zentrales Repository, in dem Arbeitskopien erstellt werden
+  * Zugriffsrechte können pfadbasiert sein.
+  * Die Änderungsverfolgung erfolgt über die Dateiprotokollierung.
+  * Die Änderungshistorie ist nur im Repository vollständig, Arbeitskopien enthalten nur die neueste Version.
+  * Für jeden Zugriff ist ein Netzzugang erforderlich.
+end note
+note top of Git
+  * Verteilte Versionsverwaltung, aber meist mit einem zentralen Server.
+  * Lokale Repository-Kopien, in denen gearbeitet wird.
+  * Zugriffsrechte können nur für das gesamte Repository gesetzt werden.
+  * Änderungsverfolgung über den Inhalt
+  * Repository und Arbeitskopien enthalten die gesamte Historie des Projekts (es ist möglich, nur Teile zu laden, um Platz zu sparen).
+  * Netzwerkzugriff ist nur für die Synchronisation erforderlich.
+end note
+
+note bottom of Git
+  Git sollten Sie immer dann bevorzugen, wenn Sie:
+  * nicht auf eine dauerhafte Netzwerkverbindung angewiesen sein wollen, um überall an Ihrem Projekt arbeiten zu können.
+  * im Falle eines Ausfalls oder Verlusts des Haupt-Repositorys abgesichert sein wollen.
+  * keinerlei Lese- und Schreibberechtigung für spezielle Verzeichnisse benötigen (wobei diese auf komplexem Weg auch mit Git eingerichtet werden können).
+  * Wert auf eine sehr schnelle Übertragung der Änderungen legen.
+end note
+
+note bottom of SVN
+  Subversion ist die bessere Wahl, wenn Sie:
+  * pfadbasierte Zugangsberechtigungen für verschiedene Bereiche Ihres Projektes benötigen.
+  * Ihre gesamte Arbeit an einem zentralen Ort bündeln möchten.
+  * mit vielen großen Binär-Dateien arbeiten.
+  * auch die Strukturen leerer Verzeichnisse vollständig aufzeichnen möchten (Git verwirft diese, da sie keinerlei Inhalt besitzen).
+end note
+
+@enduml
