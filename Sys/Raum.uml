@@ -1,0 +1,43 @@
+@startuml
+'skinparam linetype polyline
+
+rectangle Raum{
+  rectangle PI22{
+    component Student
+    component weiblichStudenten
+    component mänlicheStudenten
+    component diverseStudent
+  }
+  component Prfessor
+  Prfessor <-left-> Student
+  weiblichStudenten -up-|> Student
+  mänlicheStudenten -up-|> Student
+  diverseStudent -up-|> Student
+
+  rectangle Möbiliar {
+    component Tisch
+    component Rechner
+    component Stuhl
+
+    Stuhl -up-> Tisch : Steht an
+    Rechner -up-> Tisch : Steht auf
+
+    component Tafel
+  }
+  Student -up-> Rechner : Besitzt und verwendet
+  Student -up-> Stuhl : sitzt auf
+
+  Prfessor -up-> Tafel : schreibt an
+  Prfessor -up-> Rechner : Besitzt und verwendet
+
+  Student -up-> Tafel : schaut an
+
+  
+
+
+
+}
+
+
+
+@enduml
