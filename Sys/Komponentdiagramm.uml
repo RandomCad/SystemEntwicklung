@@ -4,9 +4,19 @@
     component [B]
     component [C]
 
-    [A] -0)-# B
-    [A] -0)-# C
-    [B] -0)-# C
-    [C] -0)-# B
+    interface BA
+    interface BC
+    interface CB
+    interface CA
+
+    [B] - BA
+    [B] - BC
+    [C] - CB
+    [C] - CA
+
+    [A] ..> BA : use
+    [A] ..> CA : use
+    [B] ..> CB : use
+    [C] ..> BC : use
   }
 @enduml
