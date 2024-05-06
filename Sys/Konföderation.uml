@@ -1,0 +1,46 @@
+@startuml
+
+component P1
+component P2
+component P3
+component P4
+component P5
+component P6
+component P7
+component P8
+component P9
+
+component Mediator as M
+
+P1 ..> M
+M .up.> P1
+
+P2 ..> M
+M .up.> P2
+
+P3 ..> M
+M .up.> P3
+
+P4 ..> M
+M .left.> P4
+
+P5 ..> M
+M .right.> P5
+
+P6 ..> M
+M .down.> P6
+
+P7 ..> M
+M .down.> P7
+
+P8 ..> M
+M .down.> P8
+
+P9 .down.> M
+M ..> P9
+
+note right of M
+  Als lösung wird eine Mediator eingeführt.
+  Aufgabe dieses ist die Komunikation zwischen den Anderen Elemnten umzusetzen und zuregel.
+end note
+@enduml
