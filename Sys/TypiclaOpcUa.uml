@@ -1,0 +1,31 @@
+@startuml
+
+OpcUaServer <- Client1 : Subscibe on Variable1
+OpcUaServer <- Client2 : Subscibe on Variable1 and 2
+OpcUaServer <- Client3 : Subscibe on Variable2
+[-> OpcUaServer : Internal Event Variable1 changed
+OpcUaServer -> Client1 : Variable1 changed to 5
+OpcUaServer -> Client2 : Variable1 changed to 5
+[-> OpcUaServer : Internal Event Variable2 changed
+OpcUaServer -> Client2 : Variable2 changed to Hot
+OpcUaServer -> Client3 : Variable2 changed to Hot
+[-> OpcUaServer : Internal Event Variable1 changed
+OpcUaServer -> Client1 : Variable1 changed to 25
+OpcUaServer -> Client2 : Variable1 changed to 25
+[-> OpcUaServer : Internal Event Variable3 changed
+OpcUaServer -> Client3 : Variable1 changed to TRUE
+
+/'
+  Dies stellt die funktionsweise von OPC UA grob dar. 
+  Das Protokoll wird heufig zur Kommunikation mit Maschinen(SPS) verwendet.
+  Dargestellt ist die Eventgesteuerte Interaction mit dem Server.
+  Es handelt sich um eine Selective-Broadcast-Muster.
+  Nicht verwenbar sind die anderen muster, da die SPS nicht immer auf die Reaktion anderer Warten möchte.
+  Neben diesem gibt es auch nicht immer dierekt etwas beim Client mit dem Neuen wert zu machen. 
+  Es ist denkbar, dass dieser die neuen Daten aufnimmt inern eine Variable auf den neune Wert setzt.
+  An dem Wert und damit der Variabel ist Potenziel "nur" ein Parallel arbeitender Prozess interesse. 
+  Dieser könnte momentan mit anderen Aufgaben beschäftigt sein.
+  Dieses Reine Informative Verhalten verbietet Master-Slave und Call-Return-Muster follständig.
+'/
+
+@enduml
