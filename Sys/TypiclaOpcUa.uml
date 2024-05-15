@@ -16,16 +16,16 @@ OpcUaServer -> Client2 : Variable1 changed to 25
 OpcUaServer -> Client3 : Variable1 changed to TRUE
 
 /'
-  Dies stellt die funktionsweise von OPC UA grob dar. 
-  Das Protokoll wird heufig zur Kommunikation mit Maschinen(SPS) verwendet.
-  Dargestellt ist die Eventgesteuerte Interaction mit dem Server.
-  Es handelt sich um eine Selective-Broadcast-Muster.
-  Nicht verwenbar sind die anderen muster, da die SPS nicht immer auf die Reaktion anderer Warten möchte.
-  Neben diesem gibt es auch nicht immer dierekt etwas beim Client mit dem Neuen wert zu machen. 
-  Es ist denkbar, dass dieser die neuen Daten aufnimmt inern eine Variable auf den neune Wert setzt.
-  An dem Wert und damit der Variabel ist Potenziel "nur" ein Parallel arbeitender Prozess interesse. 
-  Dieser könnte momentan mit anderen Aufgaben beschäftigt sein.
-  Dieses Reine Informative Verhalten verbietet Master-Slave und Call-Return-Muster follständig.
+  Dies ist eine grobe Beschreibung der Funktionsweise von OPC UA. 
+  Das Protokoll wird häufig zur Kommunikation mit Maschinen (SPS) verwendet.
+  Dargestellt ist die ereignisgesteuerte Interaktion mit dem Server.
+  Es handelt sich um ein Selective Broadcast Muster.
+  Die anderen Patterns sind nicht verwendbar, da die SPS nicht immer auf die Reaktion anderer warten will.
+  Außerdem gibt es nicht immer einen direkten Nutzen für den Client. 
+  Es ist denkbar, dass der Client die neuen Daten erhält, indem er eine Variable auf den neuen Wert setzt.
+  Der Wert und damit die Variable ist "nur" für einen parallel arbeitenden Prozess von Interesse. 
+  Dieser könnte gerade mit anderen Aufgaben beschäftigt sein.
+  Dieses rein informatorische Verhalten verbietet Master-Slave- und Call-Return-Muster gänzlich.
 '/
 
 @enduml
