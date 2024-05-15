@@ -1,0 +1,42 @@
+@startuml
+
+interface View
+class GuiView
+class BlindView
+class DebugView
+class DebugViewGui
+class DebugViewBlind
+interface Data
+class RealData
+class DataCach
+interface Controler
+class BaseControler
+class SpecialControler1
+class SpecialControler2
+
+BaseControler -up-|> Controler
+SpecialControler1 -up-|> Controler
+SpecialControler2 -up-|> Controler
+SpecialControler1 o-right- BaseControler
+SpecialControler2 o-left- BaseControler
+
+View -right-> Controler :use
+Controler -right-> Data :use
+
+Data <|-down- RealData
+Data <|-down- DataCach
+DataCach o-left- RealData
+
+View <|-down- GuiView
+View <|-down- BlindView
+View <|-down- DebugView
+
+DebugView <|-down- DebugViewGui
+DebugView <|-down- DebugViewBlind
+
+DebugViewGui o-left- GuiView
+DebugViewBlind o-left- BlindView
+
+
+
+@enduml
