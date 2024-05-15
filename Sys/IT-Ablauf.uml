@@ -1,0 +1,26 @@
+@startuml
+/'
+  Dies stellt den Ablauf in unserer IT Abteilung sterilisiert dar. 
+  Das Master Slave system ist ungeeignet, da der Helpdesk ein Programm ist und nicht zur Pirmären Komunikation gedacht ist.
+  Auserdem wäre die Komunikation über diesen erheblich inefizienter als die Frage an den Kolegen, welcher maximal 2 Räume weiter (etwa 7m entfernt) Sitzt.
+  es könnte auch als Selectiv Broadcast modeliert werden. In diesem falle würde aber die rückführung fon ergebnissen nicht dargestellt werden.
+'/
+
+[-> Helpdesk : IT anfrage
+Helpdesk -> IT_MA_1 : MA1 wird zuständig
+Helpdesk <- IT_MA_1 : MA1 hat lösung für das Problem gefunden
+[<- Helpdesk
+
+[-> Helpdesk : IT anfrage
+[-> Helpdesk : IT anfrage
+Helpdesk -> IT_MA_1 : MA1 wird zuständig
+Helpdesk -> IT_MA_2 : MA2 wird zuständig
+IT_MA_1 -> IT_MA_2 : MA1 holt sich hilfe von MA2
+IT_MA_1 <- IT_MA_2 : MA2 löst Problem
+Helpdesk <- IT_MA_2 : MA2 hat lösung für das Problem gefunden
+[<- Helpdesk
+Helpdesk <- IT_MA_1 : MA1 trägt lösungsweg ein
+[<- Helpdesk
+
+
+@enduml

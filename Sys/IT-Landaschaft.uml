@@ -1,0 +1,33 @@
+@startuml
+
+rectangle InHouse{
+  rectangle MPINetwork{
+    agent FATClient1
+    agent FATClient2
+    agent FATClient3
+    agent FATClient4
+  }
+  
+  database simulationDB
+}
+
+cloud cloudComputing
+
+FATClient1 ~~ simulationDB
+FATClient2 ~~ simulationDB
+FATClient3 ~~ simulationDB
+FATClient4 ~~ simulationDB
+
+FATClient1 --> FATClient1 : Simulating
+FATClient2 --> FATClient2 : Simulating
+FATClient2 --> MPINetwork : Simulating with help of other MPI-agents
+FATClient4 --> cloudComputing : Simulating in the cloud
+
+note top of FATClient4
+  Has a really difficult task that cannot be simulated in-house.
+end note
+note top of FATClient2
+  He has a difficult simulation task that he cannot finish in time.
+end note
+
+@enduml
