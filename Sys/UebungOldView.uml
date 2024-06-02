@@ -1,0 +1,78 @@
+@startuml
+
+rectangle old{
+  component P1 #Yellow
+  component P2 #Red
+  component "P3 not changed since 2003" as P3 #Yellow
+  component P4 #Blue
+  component P5 #Green
+
+  P1 -(0- P2
+  P2 -(0- P1
+  P4 -(0- P1
+  P5 -(0- P2
+  P3 -(0- P4
+  P3 -(0- P5
+  P2 -(0- P4
+  P2 -(0- P3
+}
+note top of old
+  The three basic colours represent different programming languages.
+  A mix like green means that the component is written in parts in different languages.
+end note
+
+old <-right-> newStep1 : Interacting with existing parts throws the 'deprecated interfaces'.
+
+rectangle newStep1{
+  component P1DepricatedInterface
+  component CalcP1
+  component DatabaseP1
+  component UIP1
+  
+  UIP1 -(0- CalcP1
+  CalcP1 -(0-DatabaseP1
+  CalcP1 -(0- P1DepricatedInterface
+  P1DepricatedInterface -(0- CalcP1
+  DatabaseP1 -(0- P1DepricatedInterface
+  P1DepricatedInterface -(0- DatabaseP1
+
+}
+
+old <--> newStep2 : Interacting with existing parts throws the 'deprecated interfaces'.
+
+rectangle newStep2{
+  component P1DepricatedInterface as P1DepricatedInterfaceV2
+  component P2DepricatedInterface as P2DepricatedInterfaceV2
+  component Calc1
+  component Calc2
+  component Calc3
+  component DatabaseNew
+  component UIProvieder
+  
+  UIProvieder -(0- Calc1
+  UIProvieder -(0- Calc3
+  Calc1 -(0- Calc2
+  Calc3 -(0- Calc2
+  Calc3 -(0- Calc1
+  Calc2 -(0- DatabaseNew
+
+  Calc1 -down(0- P1DepricatedInterfaceV2
+  Calc2 -(0- P1DepricatedInterfaceV2
+  P1DepricatedInterfaceV2 -(0- Calc1
+  DatabaseNew -(0- P1DepricatedInterfaceV2
+  P1DepricatedInterfaceV2 -(0- DatabaseNew
+
+  Calc3 -left(0- P2DepricatedInterfaceV2
+  P2DepricatedInterfaceV2 -(0- Calc3
+}
+
+note as N
+  All new microservices are written in the same language, where performance allows.
+end note
+N -up- newStep1
+N -up- newStep2
+
+note top of newStep2
+  more versions
+end note
+@enduml
