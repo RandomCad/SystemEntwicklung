@@ -1,0 +1,25 @@
+@startuml
+
+participant Master as M
+participant Handler1 as H1
+
+activate M
+M ->H1
+activate H1
+H1 -> P1
+activate P1
+H1 -> M
+deactivate H1
+
+participant Handler2 as H2
+M -> H2
+activate H2
+H2 -> P2
+deactivate P1
+activate P2
+H2 -> M
+deactivate H2
+deactivate P2
+deactivate M
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+
+database DB
+rectangle Prog1
+rectangle Prog2 
+rectangle Prog3
+rectangle "..." as Dot
+
+DB <-up- Prog1 : use
+DB <-up- Prog2 : use
+DB <-up- Prog3 : use
+DB <-up- Dot : use
+
+Prog1 -[hidden]right- Prog2
+Prog2 -[hidden]right- Prog3
+Prog3 -[hidden]right- Dot
+
+
+@enduml

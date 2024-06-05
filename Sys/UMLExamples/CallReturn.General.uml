@@ -1,0 +1,22 @@
+@startuml
+
+participant Master as M
+participant Callee1 as H1
+participant Callee2 as H2
+
+activate M
+M ->H1
+activate H1
+H1 -> H2
+activate H2
+H2 -> H1
+
+H1 -> M
+deactivate H1
+
+M -> H2
+H2 -> M
+deactivate H2
+deactivate M
+
+@enduml

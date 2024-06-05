@@ -1,0 +1,13 @@
+@startuml
+
+Rectangle S1
+rectangle S2.1
+rectangle S2.2
+rectangle S3
+
+S1 -down-> S2.1
+S1 -> S2.2
+S2.1 -> S3
+S2.2 -> S3
+
+@enduml

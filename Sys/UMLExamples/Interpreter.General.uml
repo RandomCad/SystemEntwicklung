@@ -1,0 +1,14 @@
+@startuml
+
+file Konfigurations
+rectangle Parser
+rectangle VM
+rectangle Hardware as Hardware
+
+Konfigurations -right-> Parser
+Parser -right-> VM : AST
+
+Parser -down-> Hardware : runs
+VM -down-> Hardware : runs
+
+@enduml

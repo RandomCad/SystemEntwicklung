@@ -1,0 +1,25 @@
+@startuml
+
+abstract class Vehicle{
+  #Engine a
+  #Horne b
+  +Go()
+}
+class Car
+class Buss
+class Truck
+
+Vehicle <|-down- Car
+Vehicle <|-down- Buss
+Vehicle <|-down- Truck
+
+class Engine
+class Horne
+class Trailer
+
+Truck o-- Trailer
+
+Vehicle *- Engine
+Vehicle o-left- Horne
+
+@enduml

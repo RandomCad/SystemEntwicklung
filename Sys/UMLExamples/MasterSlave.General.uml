@@ -1,0 +1,32 @@
+@startuml
+
+participant Master as M
+participant Slave1 as S1
+participant Slave2 as S2
+participant Slave3 as S3
+
+activate M
+M -> S1 
+activate S1
+S1 -> M
+
+M -> S2 
+activate S2
+S2 -> M 
+activate M
+
+M -> S3
+activate S3
+S3 -> M
+deactivate S3
+
+M -> S2
+deactivate M
+S2 -> M
+deactivate S2
+M -[hidden]-> S1
+
+deactivate S1
+deactivate M
+
+@enduml
